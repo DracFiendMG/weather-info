@@ -1,4 +1,4 @@
-package com.sreeram.weather.info.bo;
+package com.sreeram.weather.info.bo.weather;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

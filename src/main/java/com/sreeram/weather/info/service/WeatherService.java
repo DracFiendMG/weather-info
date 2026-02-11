@@ -1,5 +1,8 @@
 package com.sreeram.weather.info.service;
 
-public interface WeatherService {
+import com.sreeram.weather.info.to.WeatherRequest;
+import com.sreeram.weather.info.to.WeatherTO;
 
+public interface WeatherService {
+    WeatherTO getWeather(WeatherRequest request);
 }

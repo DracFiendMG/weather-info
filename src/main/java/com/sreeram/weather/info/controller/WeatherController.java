@@ -1,9 +1,12 @@
 package com.sreeram.weather.info.controller;
 
+import com.sreeram.weather.info.service.WeatherService;
+import com.sreeram.weather.info.to.WeatherRequest;
+import com.sreeram.weather.info.to.WeatherTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,10 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/weather")
 public class WeatherController {
 
-    @GetMapping("/{pincode}")
-    public ResponseEntity<String> getWeather(
-            @PathVariable Long pincode
+    private WeatherService weatherService;
+
+    public WeatherController(
+            WeatherService weatherService
     ) {
-        return new ResponseEntity<>(HttpStatus.OK);
+        this.weatherService = weatherService;
+    }
+
+    @GetMapping
+    public ResponseEntity<WeatherTO> getWeather(
+            @RequestBody WeatherRequest weatherRequest
+    ) {
+        return new ResponseEntity<>(weatherService.getWeather(weatherRequest), HttpStatus.OK);
     }
 }
