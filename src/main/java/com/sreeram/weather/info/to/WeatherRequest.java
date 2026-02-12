@@ -3,10 +3,10 @@ package com.sreeram.weather.info.to;
 import java.util.Date;
 
 public class WeatherRequest {
-    private Long pincode;
+    private String pincode;
     private Date forDate;
 
-    public Long getPincode() {
+    public String getPincode() {
         return pincode;
     }
 

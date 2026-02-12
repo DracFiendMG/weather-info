@@ -2,14 +2,19 @@ package com.sreeram.weather.info.to;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 import jakarta.persistence.Table;
+
+import java.util.Date;
 
 @Entity
 @Table(name = "weather")
+@IdClass(WeatherPK.class)
 public class WeatherTO {
-    private Integer id;
     @Id
-    private Long pincode;
+    private String pincode;
+    @Id
+    private Date forDate;
     private Long pressure;
     private Long humidity;
     private Long seaLevel;
@@ -20,20 +25,20 @@ public class WeatherTO {
     private String description;
     private String icon;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Long getPincode() {
+    public String getPincode() {
         return pincode;
     }
 
-    public void setPincode(Long pincode) {
+    public void setPincode(String pincode) {
         this.pincode = pincode;
+    }
+
+    public Date getForDate() {
+        return forDate;
+    }
+
+    public void setForDate(Date forDate) {
+        this.forDate = forDate;
     }
 
     public Long getPressure() {

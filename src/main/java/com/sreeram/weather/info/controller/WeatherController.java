@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/weather")
 public class WeatherController {
 
-    private WeatherService weatherService;
+    private final WeatherService weatherService;
 
     public WeatherController(
             WeatherService weatherService

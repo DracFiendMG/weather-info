@@ -11,9 +11,6 @@ import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Service
 public class GeocoderServiceImpl implements GeocoderService {
 
@@ -29,7 +26,7 @@ public class GeocoderServiceImpl implements GeocoderService {
     @Value("${open.api.key}")
     private String apiKey;
 
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
 
     public GeocoderServiceImpl(
             RestTemplate restTemplate
@@ -38,7 +35,7 @@ public class GeocoderServiceImpl implements GeocoderService {
     }
 
     @Override
-    public CoordinatesBO getCoordinates(Long pincode) {
+    public CoordinatesBO getCoordinates(String pincode) {
         String URL = host + path;
 
         String finalURL = UriComponentsBuilder.fromUriString(URL)
