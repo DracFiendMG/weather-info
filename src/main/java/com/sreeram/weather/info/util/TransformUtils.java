@@ -21,6 +21,7 @@ public class TransformUtils {
         weather.setTemp(weatherDetailsBO.getMain().getTemp());
         weather.setTempMin(weatherDetailsBO.getMain().getTempMin());
         weather.setTempMax(weatherDetailsBO.getMain().getTempMax());
+        weather.setUnits("Celsius");
 
         return weather;
     }

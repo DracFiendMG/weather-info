@@ -10,7 +10,15 @@ public class WeatherRequest {
         return pincode;
     }
 
+    public void setPincode(String pincode) {
+        this.pincode = pincode;
+    }
+
     public Date getForDate() {
         return forDate;
+    }
+
+    public void setForDate(Date forDate) {
+        this.forDate = forDate;
     }
 }

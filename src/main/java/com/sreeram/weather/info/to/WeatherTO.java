@@ -24,6 +24,7 @@ public class WeatherTO {
     private String main;
     private String description;
     private String icon;
+    private String units;
 
     public String getPincode() {
         return pincode;
@@ -111,5 +112,13 @@ public class WeatherTO {
 
     public void setIcon(String icon) {
         this.icon = icon;
+    }
+
+    public String getUnits() {
+        return units;
+    }
+
+    public void setUnits(String units) {
+        this.units = units;
     }
 }
