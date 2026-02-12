@@ -2,8 +2,11 @@ services:
   - type: web
     name: weather-info-service
     env: java
+    runtime: docker
     region: oregon
     plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
     buildCommand: ./gradlew clean build -x test
     startCommand: java -jar build/libs/weather-info-0.0.1-SNAPSHOT.jar
     envVars:
