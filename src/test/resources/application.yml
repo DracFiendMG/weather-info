@@ -1,18 +1,18 @@
 server:
-  port: ${PORT:8080}
+  port: 8080
   servlet:
     context-path: /api
 
 spring:
   application:
-    name: weather-info
+    name: weather-info-test
   datasource:
-    url: ${DATABASE_URL}
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
+    url: jdbc:postgresql://localhost:5432/weather_test
+    username: test_user
+    password: test_password
     driver-class-name: org.postgresql.Driver
   jpa:
-    show-sql: false
+    show-sql: true
     properties:
       hibernate:
         format_sql: true
@@ -20,8 +20,8 @@ spring:
 
 open:
   api:
-    key: ${OPEN_WEATHER_API_KEY}
-    host: ${OPEN_WEATHER_API_HOST}
+    key: test-api-key-12345
+    host: https://api.openweathermap.org
     weather:
       path: /data/2.5/weather
     geocode:
@@ -30,8 +30,10 @@ open:
 
 logging:
   level:
-    com.sreeram.weather.info: INFO
-    org.springframework.web: INFO
+    com.sreeram.weather.info: DEBUG
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
 

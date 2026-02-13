@@ -23,9 +23,9 @@ public class WeatherController {
     }
 
     @GetMapping
-    public ResponseEntity<WeatherTO> getWeather(
+    public WeatherTO getWeather(
             @RequestBody WeatherRequest weatherRequest
     ) {
-        return new ResponseEntity<>(weatherService.getWeather(weatherRequest), HttpStatus.OK);
+        return weatherService.getWeather(weatherRequest);
     }
 }

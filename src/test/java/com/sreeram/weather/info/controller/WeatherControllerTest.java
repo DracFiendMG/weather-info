@@ -11,8 +11,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import java.util.Date;
@@ -51,13 +49,13 @@ class WeatherControllerTest {
     void testGetWeather_WithValidRequest_ShouldReturnWeatherData() {
         when(weatherService.getWeather(any(WeatherRequest.class))).thenReturn(weatherTO);
 
-        ResponseEntity<WeatherTO> response = weatherController.getWeather(weatherRequest);
+        WeatherTO response = weatherController.getWeather(weatherRequest);
 
         assertNotNull(response);
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertNotNull(response.getBody());
-        assertEquals("500030", response.getBody().getPincode());
-        assertEquals("Clear", response.getBody().getMain());
+        assertEquals("500030", response.getPincode());
+        assertEquals("Clear", response.getMain());
+        assertEquals(25.0, response.getTemp());
+        assertEquals("clear sky", response.getDescription());
     }
 
     @Test
